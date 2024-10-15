@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from io import BytesIO
 from anomaly_detection import detect_anomalies, calculate_stats
 from ui_elements import set_page_config, set_title, set_instructions, set_documentation
+from anomaly_processor import process_file, display_results
 
 set_page_config()
 set_title()
@@ -37,32 +38,6 @@ st.markdown("""
     background-color: #87CEFA !important;
     color: white !important;
 }
-.stSelectbox div[data-baseweb="select"] > div > div > div {
-    background-color: #87CEFA !important;
-    color: white !important;
-}
-
-/* Стили для multiselect */
-.stMultiSelect div[data-baseweb="select"] {
-    background-color: white !important;
-    color: black !important;
-}
-.stMultiSelect div[data-baseweb="tag"] {
-    background-color: #87CEFA !important; /* Светло-голубой цвет для тегов */
-    color: white !important;
-}
-.stMultiSelect div[data-baseweb="tag"]:hover {
-    background-color: #5CACEE !important; /* Немного темнее при наведении */
-}
-.stMultiSelect div[data-baseweb="tag"] span[role="button"] {
-    color: white !important;
-}
-
-/* Стили для кнопок удаления в multiselect */
-.stMultiSelect div[data-baseweb="tag"] span[role="button"]:hover {
-    background-color: #4682B4 !important;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -157,6 +132,19 @@ if uploaded_file is not None:
                 file_name="anomalies.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
+
+    # Новая кнопка для обработки файла и нахождения аномалий по каждому столбцу
+    if st.button("Обработать файл и найти аномалии по каждому столбцу"):
+        # Сохранение загруженного файла
+        with open("uploaded_file.xlsx", "wb") as f:
+            f.write(uploaded_file.getbuffer())
+
+        # Обработка файла и отображение результатов
+        results = process_file("uploaded_file.xlsx")
+        st.write("Результаты обработки:")
+        for result in results:
+            st.write(f"Столбец: {result['column']}")
+            st.dataframe(result['anomalies'])
 
 set_instructions()
 set_documentation()
