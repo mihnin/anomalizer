@@ -15,15 +15,27 @@
 
 ## Установка
 
-1. Клонируйте репозиторий:
+Рекомендуется использовать `conda` для управления зависимостями и создания изолированной среды. Следуйте этим шагам для настройки проекта:
+
+1. Установите [Anaconda](https://www.anaconda.com/products/distribution) или [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+
+2. Клонируйте репозиторий:
     ```sh
     git clone https://github.com/yourusername/anomalizer.git
     ```
-2. Перейдите в директорию проекта:
+
+3. Перейдите в директорию проекта:
     ```sh
     cd anomalizer
     ```
-3. Установите необходимые зависимости:
+
+4. Создайте и активируйте новую среду conda:
+    ```sh
+    conda create --name anomalizer python=3.8
+    conda activate anomalizer
+    ```
+
+5. Установите зависимости из файла `requirements.txt`:
     ```sh
     pip install -r requirements.txt
     ```
