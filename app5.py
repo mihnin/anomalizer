@@ -41,6 +41,28 @@ st.markdown("""
     background-color: #87CEFA !important;
     color: white !important;
 }
+
+/* Стили для multiselect */
+.stMultiSelect div[data-baseweb="select"] {
+    background-color: white !important;
+    color: black !important;
+}
+.stMultiSelect div[data-baseweb="tag"] {
+    background-color: #87CEFA !important; /* Светло-голубой цвет для тегов */
+    color: white !important;
+}
+.stMultiSelect div[data-baseweb="tag"]:hover {
+    background-color: #5CACEE !important; /* Немного темнее при наведении */
+}
+.stMultiSelect div[data-baseweb="tag"] span[role="button"] {
+    color: white !important;
+}
+
+/* Стили для кнопок удаления в multiselect */
+.stMultiSelect div[data-baseweb="tag"] span[role="button"]:hover {
+    background-color: #4682B4 !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
