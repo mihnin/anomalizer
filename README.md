@@ -31,7 +31,7 @@
 
 4. Создайте и активируйте новую среду conda:
     ```sh
-    conda create --name anomalizer python=3.8
+    conda create --name anomalizer python=3.12
     conda activate anomalizer
     ```
 
