@@ -25,8 +25,21 @@ st.markdown("""
     padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-.stSelectbox [data-baseweb="select"] {
-    color: blue !important;
+.stSelectbox div[data-baseweb="select"] {
+    background-color: #6495ED !important;
+    color: white !important;
+}
+.stSelectbox div[data-baseweb="select"] > div {
+    background-color: #6495ED !important;
+    color: white !important;
+}
+.stSelectbox div[data-baseweb="select"] > div > div {
+    background-color: #6495ED !important;
+    color: white !important;
+}
+.stSelectbox div[data-baseweb="select"] > div > div > div {
+    background-color: #6495ED !important;
+    color: white !important;
 }
 </style>
 """, unsafe_allow_html=True)
