@@ -13,7 +13,7 @@ set_title()
 st.markdown("""
 <style>
 .stButton button {
-    background-color: #6495ED;
+    background-color: #87CEFA; /* Заменено на светло-голубой */
     color: white;
     border-radius: 5px;
     padding: 10px 20px;
@@ -26,19 +26,19 @@ st.markdown("""
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .stSelectbox div[data-baseweb="select"] {
-    background-color: #6495ED !important;
+    background-color: #87CEFA !important; /* Заменено на светло-голубой */
     color: white !important;
 }
 .stSelectbox div[data-baseweb="select"] > div {
-    background-color: #6495ED !important;
+    background-color: #87CEFA !important;
     color: white !important;
 }
 .stSelectbox div[data-baseweb="select"] > div > div {
-    background-color: #6495ED !important;
+    background-color: #87CEFA !important;
     color: white !important;
 }
 .stSelectbox div[data-baseweb="select"] > div > div > div {
-    background-color: #6495ED !important;
+    background-color: #87CEFA !important;
     color: white !important;
 }
 </style>
