@@ -2,36 +2,31 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-from typing import List, Optional
 from io import BytesIO
+from anomaly_detection import detect_anomalies, calculate_stats
+from ui_elements import set_page_config, set_title, set_instructions, set_documentation
 
-def detect_anomalies(data: pd.DataFrame, 
-                     column: str, 
-                     lower_threshold: float, 
-                     upper_threshold: float, 
-                     group_columns: Optional[List[str]] = None,
-                     selected_categories: Optional[dict] = None) -> pd.DataFrame:
-    if group_columns:
-        if selected_categories:
-            for col, values in selected_categories.items():
-                data = data[data[col].isin(values)]
-        grouped = data.groupby(group_columns)
-        anomalies = pd.DataFrame()
-        for name, group in grouped:
-            group_anomalies = group[(group[column] < lower_threshold) | (group[column] > upper_threshold)]
-            anomalies = pd.concat([anomalies, group_anomalies])
-        return anomalies
-    else:
-        return data[(data[column] < lower_threshold) | (data[column] > upper_threshold)]
+set_page_config()
+set_title()
 
-def calculate_stats(data: pd.DataFrame, column: str):
-    q1 = data[column].quantile(0.25)
-    q3 = data[column].quantile(0.75)
-    iqr = q3 - q1
-    return iqr, q1, q3
-
-st.set_page_config(page_title="Обнаружение аномалий", layout="wide")
-st.title("Обнаружение аномалий в данных")
+# Добавляем стили CSS для изменения оформления
+st.markdown("""
+<style>
+.stButton button {
+    background-color: #6495ED;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.stDataFrame {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+</style>
+""", unsafe_allow_html=True)
 
 uploaded_file = st.file_uploader("Загрузите файл Excel", type=["xlsx", "xls"])
 
@@ -125,53 +120,5 @@ if uploaded_file is not None:
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
 
-st.markdown("""
-### Инструкции:
-1. Загрузите файл Excel с вашими данными.
-2. Выберите столбец с датой для оси X (если доступно).
-3. Выберите числовой столбец для анализа.
-4. Выберите категориальные признаки для группировки (необязательно).
-5. Выберите конкретные значения категориальных признаков (если применимо).
-6. Настройте нижний и верхний пороги для обнаружения аномалий.
-7. Нажмите кнопку "Обнаружить аномалии".
-8. Просмотрите результаты и визуализацию.
-9. При необходимости скачайте результаты в Excel.
-""")
-
-st.markdown("""
-## Документация
-
-### Метод межквартильного размаха (IQR) для определения выбросов
-
-Межквартильный размах (IQR) - это статистическая мера разброса данных, которая используется для выявления выбросов в наборе данных. Этот метод устойчив к экстремальным значениям и эффективен для несимметричных распределений.
-
-#### Шаги метода:
-
-1. **Сортировка данных**
-   - Упорядочиваем все значения по возрастанию.
-
-2. **Нахождение квартилей**
-   - Q1 (первый квартиль): 25-й процентиль
-   - Q2 (медиана): 50-й процентиль
-   - Q3 (третий квартиль): 75-й процентиль
-
-3. **Расчет межквартильного размаха (IQR)**
-   - IQR = Q3 - Q1
-
-4. **Определение границ выбросов**
-   - Нижняя граница = Q1 - (множитель * IQR)
-   - Верхняя граница = Q3 + (множитель * IQR)
-   - Стандартный множитель: 1.5
-
-5. **Выявление выбросов**
-   - Любые значения, выходящие за пределы этих границ, считаются выбросами.
-
-#### Влияние множителя IQR
-
-- Увеличение множителя делает метод менее чувствительным (меньше значений определяется как выбросы).
-- Уменьшение множителя делает метод более чувствительным (больше значений определяется как выбросы).
-
-Выбор множителя зависит от специфики данных и целей анализа. Стандартное значение 1.5 подходит для многих случаев, но может быть скорректировано в зависимости от требуемой строгости выявления аномалий.
-
-Этот метод эффективен для первичного анализа данных и выявления потенциальных аномалий, но следует учитывать контекст данных при интерпретации результатов.
-""")
+set_instructions()
+set_documentation()
