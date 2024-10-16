@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 from io import BytesIO
 from anomaly_detection import detect_anomalies, calculate_stats
 from ui_elements import set_page_config, set_title, set_instructions, set_documentation
-from anomaly_processor import process_file, display_results
+from anomaly_processor import process_file, create_anomalies_excel
 
 set_page_config()
 set_title()
@@ -44,7 +44,12 @@ st.markdown("""
 uploaded_file = st.file_uploader("Загрузите файл Excel", type=["xlsx", "xls"])
 
 if uploaded_file is not None:
-    df = pd.read_excel(uploaded_file)
+    # Прочитать загруженный файл как байтовый поток
+    file_bytes = uploaded_file.read()
+    if uploaded_file.name.endswith('.xlsx'):
+        df = pd.read_excel(BytesIO(file_bytes), engine='openpyxl')
+    else:
+        df = pd.read_excel(BytesIO(file_bytes), engine='xlrd')
     st.write("Предварительный просмотр данных:")
     st.dataframe(df.head())
 
@@ -142,9 +147,35 @@ if uploaded_file is not None:
         # Обработка файла и отображение результатов
         results = process_file("uploaded_file.xlsx")
         st.write("Результаты обработки:")
+        
+        # Создаем DataFrame для отображения всех аномалий
+        all_anomalies = pd.DataFrame()
+        
         for result in results:
-            st.write(f"Столбец: {result['column']}")
-            st.dataframe(result['anomalies'])
+            column = result['column']
+            anomalies = result['anomalies']
+            st.write(f"Столбец: {column}")
+            st.dataframe(anomalies)
+            
+            # Добавляем аномалии в общий DataFrame
+            if all_anomalies.empty:
+                all_anomalies = anomalies
+            else:
+                all_anomalies = pd.merge(all_anomalies, anomalies, how='outer')
+        
+        # Отображаем общую таблицу аномалий
+        st.write("Общая таблица аномалий:")
+        st.dataframe(all_anomalies)
+        
+        # Кнопка для скачивания всех аномалий
+        if st.button("Скачать все аномалии"):
+            excel_data = create_anomalies_excel(results)
+            st.download_button(
+                label="Скачать все аномалии в Excel",
+                data=excel_data,
+                file_name="all_anomalies.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            )
 
 set_instructions()
 set_documentation()
