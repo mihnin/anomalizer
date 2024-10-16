@@ -148,7 +148,6 @@ if uploaded_file is not None:
         results = process_file("uploaded_file.xlsx")
         st.write("Результаты обработки:")
         
-        # Создаем DataFrame для отображения всех аномалий
         all_anomalies = pd.DataFrame()
         
         for result in results:
@@ -157,25 +156,27 @@ if uploaded_file is not None:
             st.write(f"Столбец: {column}")
             st.dataframe(anomalies)
             
-            # Добавляем аномалии в общий DataFrame
-            if all_anomalies.empty:
-                all_anomalies = anomalies
-            else:
-                all_anomalies = pd.merge(all_anomalies, anomalies, how='outer')
+            if not anomalies.empty:
+                anomalies['Anomaly'] = anomalies[column].astype(str) + ' ' + column
+                if all_anomalies.empty:
+                    all_anomalies = anomalies
+                else:
+                    all_anomalies = pd.concat([all_anomalies, anomalies], axis=0)
+        
+        all_anomalies = all_anomalies.reset_index(drop=True)
         
         # Отображаем общую таблицу аномалий
         st.write("Общая таблица аномалий:")
         st.dataframe(all_anomalies)
         
         # Кнопка для скачивания всех аномалий
-        if st.button("Скачать все аномалии"):
-            excel_data = create_anomalies_excel(results)
-            st.download_button(
-                label="Скачать все аномалии в Excel",
-                data=excel_data,
-                file_name="all_anomalies.xlsx",
-                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            )
+        excel_data = create_anomalies_excel(results)
+        st.download_button(
+            label="Скачать все аномалии в Excel",
+            data=excel_data,
+            file_name="all_anomalies.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
 
 set_instructions()
 set_documentation()
