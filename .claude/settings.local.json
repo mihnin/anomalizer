@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(python:*)",
-      "Bash(streamlit run:*)"
+      "Bash(streamlit run:*)",
+      "Bash(grep:*)",
+      "Bash(docker:*)",
+      "Bash(chmod:*)"
     ],
     "deny": []
   }
