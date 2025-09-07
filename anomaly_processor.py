@@ -1,14 +1,22 @@
 import pandas as pd
-import numpy as np
 from anomaly_detection import detect_anomalies, calculate_stats
 import io
-from openpyxl import Workbook
 from openpyxl.styles import PatternFill
 
-def process_file(file_path):
+
+def process_file(file_path: str) -> list:
+    """
+    Обрабатывает Excel файл и находит аномалии для каждого числового столбца.
+
+    Args:
+        file_path: Путь к Excel файлу
+
+    Returns:
+        Список словарей с результатами анализа для каждого столбца
+    """
     # Чтение файла
     df = pd.read_excel(file_path)
-    
+
     # Список для хранения результатов
     results = []
 
@@ -31,16 +39,33 @@ def process_file(file_path):
 
     return results
 
-def display_results(results):
+
+def display_results(results: list) -> None:
+    """
+    Выводит результаты анализа в консоль.
+
+    Args:
+        results: Список результатов анализа
+    """
     for result in results:
         column = result['column']
         anomalies = result['anomalies']
         print(f"Столбец: {column}")
         print(f"Аномалии:\n{anomalies}\n")
 
-def create_anomalies_excel(results):
+
+def create_anomalies_excel(results: list) -> bytes:
+    """
+    Создает Excel файл с аномалиями, выделенными цветом.
+
+    Args:
+        results: Список результатов анализа
+
+    Returns:
+        Байтовое представление Excel файла
+    """
     all_anomalies = pd.DataFrame()
-    
+
     for result in results:
         column = result['column']
         anomalies = result['anomalies']
@@ -50,24 +75,31 @@ def create_anomalies_excel(results):
                 all_anomalies = anomalies
             else:
                 all_anomalies = pd.concat([all_anomalies, anomalies], axis=0)
-    
+
     all_anomalies = all_anomalies.reset_index(drop=True)
-    
+
     output = io.BytesIO()
     with pd.ExcelWriter(output, engine='openpyxl') as writer:
         all_anomalies.to_excel(writer, sheet_name='All Anomalies', index=False)
         workbook = writer.book
         worksheet = workbook['All Anomalies']
-        
-        red_fill = PatternFill(start_color='FFFF0000', end_color='FFFF0000', fill_type='solid')
-        for row in worksheet.iter_rows(min_row=2, max_row=worksheet.max_row, min_col=1, max_col=worksheet.max_column):
+
+        red_fill = PatternFill(start_color='FFFF0000',
+                               end_color='FFFF0000',
+                               fill_type='solid')
+        for row in worksheet.iter_rows(min_row=2,
+                                       max_row=worksheet.max_row,
+                                       min_col=1,
+                                       max_col=worksheet.max_column):
             for cell in row:
-                if cell.column_letter != 'A' and cell.value is not None:  # Исключаем столбец Date
+                # Исключаем столбец Date
+                if cell.column_letter != 'A' and cell.value is not None:
                     column_name = worksheet.cell(row=1, column=cell.column).value
                     if f"{cell.value} {column_name}" in all_anomalies['Anomaly'].values:
                         cell.fill = red_fill
-    
+
     return output.getvalue()
+
 
 # Пример использования
 if __name__ == "__main__":
