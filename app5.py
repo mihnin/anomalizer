@@ -6,10 +6,29 @@ from io import BytesIO
 from anomaly_detection import detect_anomalies, calculate_stats
 from ui_elements import set_page_config, set_title, set_instructions, set_documentation
 from anomaly_processor import process_file, create_anomalies_excel
+from version import __version__, VERSION_INFO
 
 # Настройка страницы
 set_page_config()
 set_title()
+
+# Информация о версии в sidebar
+st.sidebar.markdown("---")
+st.sidebar.markdown(f"### 📊 {VERSION_INFO['name']} v{__version__}")
+st.sidebar.markdown(f"*{VERSION_INFO['description']}*")
+st.sidebar.markdown("**Возможности приложения:**")
+for feature in VERSION_INFO['features']:
+    st.sidebar.markdown(f"- {feature}")
+
+st.sidebar.markdown("---")
+st.sidebar.markdown("**Что нового в версии 2.0:**")
+st.sidebar.markdown("""
+- 🔧 Улучшенная архитектура кода
+- 🧪 Расширенное тестовое покрытие (23 теста)
+- 📈 Оптимизированная визуализация
+- 🛡️ Улучшенная обработка ошибок
+- 🎯 Более точный алгоритм обнаружения
+""")
 
 # CSS стили
 st.markdown("""
