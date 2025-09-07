@@ -1,17 +1,19 @@
-# 🚀 Быстрый старт - Anomalizer v2.0
+# 🚀 Quick Start - Anomalizer v2.0
 
-## Самый быстрый способ запустить приложение
+**[🇺🇸 English](QUICK_START.md) | [🇷🇺 Русский](QUICK_START.ru.md)**
 
-### 🐳 Docker (рекомендуется)
+## Fastest Way to Launch the Application
+
+### 🐳 Docker (recommended)
 ```bash
-# Клонирование репозитория
+# Clone repository
 git clone https://github.com/yourusername/anomalizer.git
 cd anomalizer
 
-# Запуск одной командой
+# Launch with one command
 docker-compose up
 
-# Открыть в браузере: http://localhost:8505
+# Open in browser: http://localhost:8505
 ```
 
 ### 🐍 Python venv
@@ -26,80 +28,80 @@ git clone https://github.com/yourusername/anomalizer.git
 cd anomalizer
 ./run.sh venv
 
-# Открыть в браузере: http://localhost:8501
+# Open in browser: http://localhost:8501
 ```
 
 ---
 
-## 📋 Поддерживаемые команды запуска
+## 📋 Supported Launch Commands
 
-| Команда | Windows | Linux/macOS | Описание |
-|---------|---------|-------------|-----------|
-| **venv** | `run.bat venv` | `./run.sh venv` | Python виртуальное окружение |
+| Command | Windows | Linux/macOS | Description |
+|---------|---------|-------------|-------------|
+| **venv** | `run.bat venv` | `./run.sh venv` | Python virtual environment |
 | **conda** | `run.bat conda` | `./run.sh conda` | Anaconda/Miniconda |
-| **docker** | `run.bat docker` | `./run.sh docker` | Docker контейнер |
+| **docker** | `run.bat docker` | `./run.sh docker` | Docker container |
 | **docker-prod** | `run.bat docker-prod` | `./run.sh docker-prod` | Docker + nginx |
 
 ---
 
-## 🎯 Первое использование
+## 🎯 First Use
 
-1. **Загрузите тестовые данные** из папки `files_datasets/`
-2. **Откройте приложение** по адресу из консоли
-3. **Перетащите Excel файл** в область загрузки
-4. **Выберите столбцы** для анализа
-5. **Нажмите "Обнаружить аномалии"**
-6. **Изучите результаты** на интерактивных графиках
+1. **Upload test data** from `files_datasets/` folder
+2. **Open application** at the address shown in console
+3. **Drag and drop Excel file** into upload area
+4. **Select columns** for analysis
+5. **Click "Detect Anomalies"**
+6. **Explore results** on interactive charts
 
 ---
 
-## 🔧 Что делать если что-то не работает
+## 🔧 Troubleshooting
 
-### Проблемы с портами
+### Port Issues
 ```bash
-# Если порт занят, используйте другой
+# If port is busy, use another one
 streamlit run app5.py --server.port 8502
 docker run -p 8507:8505 anomalizer:2.0
 ```
 
-### Проблемы с Docker
+### Docker Issues
 ```bash
-# Проверка Docker
+# Check Docker
 docker --version
 docker-compose --version
 
-# Пересборка
+# Rebuild
 docker-compose down
 docker-compose build --no-cache
 docker-compose up
 ```
 
-### Проблемы с Python
+### Python Issues
 ```bash
-# Проверка Python
-python --version  # Должен быть 3.8+
+# Check Python
+python --version  # Should be 3.8+
 
-# Переустановка зависимостей
+# Reinstall dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
 ---
 
-## 📊 Тестовые данные
+## 📊 Test Data
 
-В папке `files_datasets/` доступны:
-- **dataset1.xlsx** - данные с датчиков (2900+ записей)
-- **dataset2.xlsx** - категориальные данные
-
----
-
-## 🆘 Получить помощь
-
-- 📖 **Полная документация**: [README.md](README.md)
-- 🐛 **Сообщить об ошибке**: [GitHub Issues](https://github.com/yourusername/anomalizer/issues)
-- 💬 **Обсуждения**: [GitHub Discussions](https://github.com/yourusername/anomalizer/discussions)
+Available in `files_datasets/` folder:
+- **dataset1.xlsx** - sensor data (2900+ records)
+- **dataset2.xlsx** - categorical data
 
 ---
 
-*Anomalizer v2.0 - Умное обнаружение аномалий в ваших данных* 📊
+## 🆘 Get Help
+
+- 📖 **Full documentation**: [README.md](README.md)
+- 🐛 **Report bug**: [GitHub Issues](https://github.com/yourusername/anomalizer/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/anomalizer/discussions)
+
+---
+
+*Anomalizer v2.0 - Smart anomaly detection for your data* 📊

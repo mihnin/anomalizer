@@ -5,7 +5,11 @@
       "Bash(streamlit run:*)",
       "Bash(grep:*)",
       "Bash(docker:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)"
     ],
     "deny": []
   }

@@ -1,43 +1,45 @@
 # Anomalizer v2.0
 
-![Титульное изображение](images/titul.jpg)
+**[🇺🇸 English](README.md) | [🇷🇺 Русский](README.ru.md)**
 
-## Описание проекта
+![Title Image](images/titul.jpg)
 
-> **🚀 Версия 2.0** - Значительные улучшения архитектуры, расширенное тестирование и оптимизированный код
+## Project Description
 
-**Anomalizer** - это инструмент для анализа временных рядов и выявления аномалий с использованием метода межквартильного размаха (IQR). Проект разработан с использованием библиотеки Streamlit для создания интерактивного веб-приложения, которое позволяет пользователям загружать свои данные, настраивать параметры анализа и визуализировать результаты.
+> **🚀 Version 2.0** - Significant architecture improvements, extended testing, and optimized code
 
-С функциональными возможностями приложения можно ознакомиться по [этой ссылке](https://anomalizer-d5nj5mqpuwsr8u6bxkxot9.streamlit.app/), а тестовые наборы данных вы можете скачать из папки `files_datasets`.
+**Anomalizer** is a tool for time series analysis and anomaly detection using the Interquartile Range (IQR) method. The project is built using the Streamlit library to create an interactive web application that allows users to upload their data, configure analysis parameters, and visualize results.
 
-## 🆕 Новинки версии 2.0
+You can explore the application functionality at [this link](https://anomalizer-d5nj5mqpuwsr8u6bxkxot9.streamlit.app/), and download test datasets from the `files_datasets` folder.
 
-- **🔧 Улучшенная архитектура**: Код разбит на модульные компоненты для лучшей поддерживаемости
-- **🧪 Расширенное тестирование**: 23 теста покрывают все основные функции и граничные случаи
-- **📊 Улучшенная визуализация**: Оптимизированные графики с лучшей производительностью
-- **🛡️ Надежная обработка ошибок**: Корректная работа с пустыми данными и граничными случаями
-- **📝 Полная документация**: Все функции снабжены подробными docstrings
-- **🎯 Типизация**: Добавлены type hints для лучшей поддержки IDE
-- **⚡ Соответствие PEP 8**: Код приведен в соответствие со стандартами Python
+## 🆕 What's New in Version 2.0
 
-## Функциональные возможности
+- **🔧 Improved Architecture**: Code split into modular components for better maintainability
+- **🧪 Extended Testing**: 23 tests cover all core functions and edge cases
+- **📊 Enhanced Visualization**: Optimized charts with better performance
+- **🛡️ Reliable Error Handling**: Proper handling of empty data and edge cases
+- **📝 Complete Documentation**: All functions include detailed docstrings
+- **🎯 Type Annotations**: Added type hints for better IDE support
+- **⚡ PEP 8 Compliance**: Code aligned with Python standards
 
-- **Загрузка данных**: Поддержка загрузки файлов Excel с данными.
-- **Выбор столбцов**: Возможность выбора столбца с датой для оси X и числового столбца для анализа.
-- **Группировка данных**: Поддержка выбора категориальных признаков для группировки данных.
-- **Настройка порогов**: Возможность настройки нижнего и верхнего порогов для обнаружения аномалий.
-- **Визуализация**: Построение графиков с использованием Plotly для визуализации аномалий.
-- **Скачивание результатов**: Возможность скачивания результатов анализа в формате Excel.
-- **Поиск аномалий по каждому столбцу**: Возможность поиска аномалий по каждому столбцу в датасете и отображение результатов в таблице.
+## Features
 
-## 🚀 Установка и развертывание
+- **Data Upload**: Support for Excel file uploads
+- **Column Selection**: Choose date column for X-axis and numeric column for analysis
+- **Data Grouping**: Support for categorical features for data grouping
+- **Threshold Configuration**: Configure lower and upper thresholds for anomaly detection
+- **Visualization**: Interactive charts using Plotly for anomaly visualization
+- **Results Download**: Download analysis results in Excel format
+- **Column-wise Anomaly Search**: Search for anomalies in each dataset column with tabular results
 
-### Требования к системе
-- Python 3.8+ 
-- 2+ ГБ свободного места на диске
-- 4+ ГБ оперативной памяти (рекомендуется для больших датасетов)
+## 🚀 Installation and Deployment
 
-### 📥 Клонирование репозитория
+### System Requirements
+- Python 3.8+
+- 2+ GB free disk space
+- 4+ GB RAM (recommended for large datasets)
+
+### 📥 Repository Cloning
 
 ```bash
 git clone https://github.com/yourusername/anomalizer.git
@@ -46,55 +48,55 @@ cd anomalizer
 
 ---
 
-## 💻 Установка по операционным системам
+## 💻 OS-Specific Installation
 
 ### 🐧 Linux (Ubuntu/Debian)
 
-#### Способ 1: Используя venv (рекомендуется)
+#### Method 1: Using venv (recommended)
 ```bash
-# Установка Python и pip (если не установлены)
+# Install Python and pip (if not installed)
 sudo apt update
 sudo apt install python3 python3-pip python3-venv
 
-# Создание виртуального окружения
+# Create virtual environment
 python3 -m venv anomalizer-env
 
-# Активация окружения
+# Activate environment
 source anomalizer-env/bin/activate
 
-# Установка зависимостей
+# Install dependencies
 pip install -r requirements.txt
 
-# Запуск приложения
+# Run application
 streamlit run app5.py
 ```
 
-#### Способ 2: Используя Anaconda/Miniconda
+#### Method 2: Using Anaconda/Miniconda
 ```bash
-# Установка Miniconda (если не установлен)
+# Install Miniconda (if not installed)
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 
-# Перезагрузка терминала или
+# Reload terminal or
 source ~/.bashrc
 
-# Создание среды
+# Create environment
 conda create --name anomalizer-env python=3.9
 conda activate anomalizer-env
 
-# Установка зависимостей
+# Install dependencies
 pip install -r requirements.txt
 
-# Запуск приложения
+# Run application
 streamlit run app5.py
 ```
 
-#### Способ 3: Системная установка
+#### Method 3: System Installation
 ```bash
-# Установка зависимостей глобально (не рекомендуется)
+# Install dependencies globally (not recommended)
 pip3 install -r requirements.txt
 
-# Запуск приложения
+# Run application
 streamlit run app5.py
 ```
 
@@ -102,59 +104,59 @@ streamlit run app5.py
 
 ### 🍎 macOS
 
-#### Способ 1: Используя venv (рекомендуется)
+#### Method 1: Using venv (recommended)
 ```bash
-# Python обычно уже установлен, если нет:
+# Python usually pre-installed, if not:
 # brew install python
 
-# Создание виртуального окружения
+# Create virtual environment
 python3 -m venv anomalizer-env
 
-# Активация окружения
+# Activate environment
 source anomalizer-env/bin/activate
 
-# Установка зависимостей
+# Install dependencies
 pip install -r requirements.txt
 
-# Запуск приложения
+# Run application
 streamlit run app5.py
 ```
 
-#### Способ 2: Используя Homebrew + venv
+#### Method 2: Using Homebrew + venv
 ```bash
-# Установка Python через Homebrew
+# Install Python via Homebrew
 brew install python
 
-# Создание виртуального окружения
+# Create virtual environment
 python3 -m venv anomalizer-env
 
-# Активация окружения
+# Activate environment
 source anomalizer-env/bin/activate
 
-# Установка зависимостей
+# Install dependencies
 pip install -r requirements.txt
 
-# Запуск приложения
+# Run application
 streamlit run app5.py
 ```
 
-#### Способ 3: Используя Anaconda/Miniconda
+#### Method 3: Using Anaconda/Miniconda
 ```bash
-# Установка Miniconda (если не установлен)
+# Install Miniconda (if not installed)
 curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash Miniconda3-latest-MacOSX-x86_64.sh
 
-# Перезагрузка терминала
-source ~/.zshrc  # или source ~/.bash_profile
+# Reload terminal
+source ~/.zshrc  # or source ~/.bash_profile
 
-# Создание среды
+# Create environment
 conda create --name anomalizer-env python=3.9
 conda activate anomalizer-env
 
-# Установка зависимостей
+# Install dependencies
 pip install -r requirements.txt
 
-# Запуск приложения
+# Run application
 streamlit run app5.py
 ```
 
@@ -162,75 +164,75 @@ streamlit run app5.py
 
 ### 🪟 Windows
 
-#### Способ 1: Используя venv (рекомендуется)
+#### Method 1: Using venv (recommended)
 ```cmd
-# Установка Python с python.org (если не установлен)
-# Скачайте с https://www.python.org/downloads/
+# Install Python from python.org (if not installed)
+# Download from https://www.python.org/downloads/
 
-# Создание виртуального окружения
+# Create virtual environment
 python -m venv anomalizer-env
 
-# Активация окружения
+# Activate environment
 anomalizer-env\Scripts\activate
 
-# Установка зависимостей
+# Install dependencies
 pip install -r requirements.txt
 
-# Запуск приложения
+# Run application
 streamlit run app5.py
 ```
 
-#### Способ 2: Используя Anaconda/Miniconda
+#### Method 2: Using Anaconda/Miniconda
 ```cmd
-# Установка Anaconda/Miniconda с официального сайта
+# Install Anaconda/Miniconda from official website
 # https://www.anaconda.com/products/distribution
 
-# Создание среды
+# Create environment
 conda create --name anomalizer-env python=3.9
 conda activate anomalizer-env
 
-# Установка зависимостей
+# Install dependencies
 pip install -r requirements.txt
 
-# Запуск приложения
+# Run application
 streamlit run app5.py
 ```
 
-#### Способ 3: PowerShell
+#### Method 3: PowerShell
 ```powershell
-# Создание виртуального окружения
+# Create virtual environment
 python -m venv anomalizer-env
 
-# Активация окружения
+# Activate environment
 .\anomalizer-env\Scripts\Activate.ps1
 
-# Если возникает ошибка ExecutionPolicy:
+# If ExecutionPolicy error occurs:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-# Установка зависимостей
+# Install dependencies
 pip install -r requirements.txt
 
-# Запуск приложения
+# Run application
 streamlit run app5.py
 ```
 
 ---
 
-## 🐳 Docker развертывание
+## 🐳 Docker Deployment
 
-### Быстрый запуск с Docker
+### Quick Docker Start
 
 ```bash
-# Сборка образа
+# Build image
 docker build -t anomalizer:2.0 .
 
-# Запуск контейнера
+# Run container
 docker run -p 8505:8505 anomalizer:2.0
 ```
 
-### Docker Compose (рекомендуется для продакшена)
+### Docker Compose (recommended for production)
 
-Создайте файл `docker-compose.yml`:
+Create `docker-compose.yml` file:
 
 ```yaml
 version: '3.8'
@@ -247,290 +249,290 @@ services:
     restart: unless-stopped
 ```
 
-Запуск:
+Launch:
 ```bash
 docker-compose up -d
 ```
 
-### Готовый образ из Docker Hub (если доступен)
+### Pre-built Image from Docker Hub (if available)
 ```bash
-# Загрузка и запуск готового образа
-docker pull anomalizer/anomalizer:2.0
-docker run -p 8505:8505 anomalizer/anomalizer:2.0
+# Download and run pre-built image
+docker pull mih10/anomalizer:2.0
+docker run -p 8505:8505 mih10/anomalizer:2.0
 ```
 
 ---
 
-## 🔧 Дополнительные команды
+## 🔧 Additional Commands
 
-### Деактивация виртуального окружения
+### Deactivate Virtual Environment
 ```bash
-# Для venv
+# For venv
 deactivate
 
-# Для conda
+# For conda
 conda deactivate
 ```
 
-### Удаление окружения
+### Remove Environment
 ```bash
-# Для venv
+# For venv
 rm -rf anomalizer-env  # Linux/macOS
 rmdir /s anomalizer-env  # Windows
 
-# Для conda
+# For conda
 conda env remove --name anomalizer-env
 ```
 
-### Обновление зависимостей
+### Update Dependencies
 ```bash
 pip install --upgrade -r requirements.txt
 ```
 
-## 📱 Использование
+## 📱 Usage
 
-### Локальный запуск
+### Local Launch
 ```bash
-# После установки и активации окружения
+# After installation and environment activation
 streamlit run app5.py
 ```
 
-### Docker запуск
+### Docker Launch
 ```bash
-# Быстрый запуск
+# Quick launch
 docker-compose up
 
-# Продакшен с nginx
+# Production with nginx
 docker-compose --profile production up -d
 ```
 
-### Доступ к приложению
-- **Локально**: http://localhost:8501
+### Application Access
+- **Local**: http://localhost:8501
 - **Docker**: http://localhost:8505
-- **Docker с nginx**: http://localhost:80
+- **Docker with nginx**: http://localhost:80
 
-### Пошаговое использование
-1. 📁 **Загрузите Excel файл** с вашими данными
-2. 📊 **Выберите столбцы** для анализа (дата, числовые данные)
-3. 🏷️ **Настройте группировку** (опционально)
-4. ⚙️ **Установите пороги** обнаружения аномалий
-5. 🔍 **Запустите анализ** нажав соответствующую кнопку
-6. 📈 **Просмотрите результаты** и интерактивные графики
-7. 💾 **Скачайте отчет** в формате Excel
+### Step-by-Step Usage
+1. 📁 **Upload Excel file** with your data
+2. 📊 **Select columns** for analysis (date, numeric data)
+3. 🏷️ **Configure grouping** (optional)
+4. ⚙️ **Set thresholds** for anomaly detection
+5. 🔍 **Run analysis** by clicking the appropriate button
+6. 📈 **View results** and interactive charts
+7. 💾 **Download report** in Excel format
 
-## Примеры использования
+## Usage Examples
 
-### Пример 1: Анализ временного ряда
+### Example 1: Time Series Analysis
 
-1. Загрузите файл Excel с временными рядами.
-2. Выберите столбец с датой для оси X и числовой столбец для анализа.
-3. Выберите категориальные признаки для группировки данных.
-4. Настройте нижний и верхний пороги для обнаружения аномалий.
-5. Нажмите кнопку "Обнаружить аномалии".
-6. Просмотрите результаты и визуализацию.
+1. Upload an Excel file with time series data.
+2. Select a date column for the X-axis and a numeric column for analysis.
+3. Choose categorical features for data grouping.
+4. Configure lower and upper thresholds for anomaly detection.
+5. Click "Detect Anomalies" button.
+6. Review results and visualization.
 
-![Пример 1 - Шаг 1](images/datase1_1.png)
-![Пример 1 - Шаг 2](images/datase1_2.png)
+![Example 1 - Step 1](images/datase1_1.png)
+![Example 1 - Step 2](images/datase1_2.png)
 
-### Пример 2: Анализ данных с категориальными признаками
+### Example 2: Categorical Data Analysis
 
-1. Загрузите файл Excel с данными, содержащими категориальные признаки.
-2. Выберите столбец с датой для оси X (если доступно) и числовой столбец для анализа.
-5. Нажмите кнопку "Обработать файл и найти аномалии по каждому столбцу".
-6. Просмотрите результаты.
+1. Upload an Excel file containing categorical features.
+2. Select a date column for the X-axis (if available) and a numeric column for analysis.
+3. Click "Process file and find anomalies for each column" button.
+4. Review results.
 
-![Пример 2 - Шаг 1](images/datase2_1.png)
-![Пример 2 - Шаг 2](images/datase2_2.png)
+![Example 2 - Step 1](images/datase2_1.png)
+![Example 2 - Step 2](images/datase2_2.png)
 
-## Бизнес-выгоды
+## Business Benefits
 
-**Anomalizer** - это универсальный инструмент, который помогает находить аномалии в любых данных, будь то финансовые, логистические или физические показатели, передаваемые с датчиков АСУ ТП. Выявление аномалий может помочь в:
+**Anomalizer** is a versatile tool that helps find anomalies in any data, whether financial, logistical, or physical metrics transmitted from industrial sensors. Anomaly detection can help with:
 
-- **Снижении затрат**: Обнаружение и устранение аномалий может предотвратить финансовые потери.
-- **Повышении эффективности**: Идентификация проблемных областей позволяет оптимизировать процессы.
-- **Улучшении качества данных**: Выявление и исправление аномалий улучшает точность и надежность данных.
-- **Принятии обоснованных решений**: Анализ данных без аномалий позволяет принимать более точные и обоснованные решения.
+- **Cost Reduction**: Detecting and eliminating anomalies can prevent financial losses.
+- **Efficiency Improvement**: Identifying problem areas allows for process optimization.
+- **Data Quality Enhancement**: Detecting and correcting anomalies improves data accuracy and reliability.
+- **Informed Decision Making**: Analyzing data without anomalies enables more accurate and informed decisions.
 
-## Документация
+## Documentation
 
-### Метод межквартильного размаха (IQR) для определения выбросов
+### Interquartile Range (IQR) Method for Outlier Detection
 
-Межквартильный размах (IQR) - это статистическая мера разброса данных, которая используется для выявления выбросов в наборе данных. Этот метод устойчив к экстремальным значениям и эффективен для несимметричных распределений.
+The Interquartile Range (IQR) is a statistical measure of data spread used to identify outliers in datasets. This method is robust against extreme values and effective for asymmetric distributions.
 
-#### Шаги метода:
+#### Method Steps:
 
-1. **Сортировка данных**
-   - Упорядочиваем все значения по возрастанию.
+1. **Data Sorting**
+   - Order all values in ascending order.
 
-2. **Нахождение квартилей**
-   - Q1 (первый квартиль): 25-й процентиль
-   - Q2 (медиана): 50-й процентиль
-   - Q3 (третий квартиль): 75-й процентиль
+2. **Finding Quartiles**
+   - Q1 (first quartile): 25th percentile
+   - Q2 (median): 50th percentile
+   - Q3 (third quartile): 75th percentile
 
-3. **Расчет межквартильного размаха (IQR)**
+3. **Calculate Interquartile Range (IQR)**
    - IQR = Q3 - Q1
 
-4. **Определение границ выбросов**
-   - Нижняя граница = Q1 - (множитель * IQR)
-   - Верхняя граница = Q3 + (множитель * IQR)
-   - Стандартный множитель: 1.5
+4. **Define Outlier Boundaries**
+   - Lower boundary = Q1 - (multiplier * IQR)
+   - Upper boundary = Q3 + (multiplier * IQR)
+   - Standard multiplier: 1.5
 
-5. **Выявление выбросов**
-   - Любые значения, выходящие за пределы этих границ, считаются выбросами.
+5. **Identify Outliers**
+   - Any values outside these boundaries are considered outliers.
 
-#### Пример на яблоках
+#### Apple Example
 
-Представим, что у нас есть следующие веса 20 яблок (в граммах), уже отсортированные по возрастанию:
+Imagine we have the following weights of 20 apples (in grams), already sorted in ascending order:
 82, 85, 88, 90, 92, 95, 98, 100, 103, 105, 108, 110, 112, 115, 118, 120, 123, 125, 128, 130
 
-Теперь выполним расчет:
+Now let's calculate:
 
-1. Разделим наши яблоки на 4 группы (по 5 яблок в каждой):
-   - Группа 1: 82, 85, 88, 90, 92
-   - Группа 2: 95, 98, 100, 103, 105
-   - Группа 3: 108, 110, 112, 115, 118
-   - Группа 4: 120, 123, 125, 128, 130
+1. Divide our apples into 4 groups (5 apples each):
+   - Group 1: 82, 85, 88, 90, 92
+   - Group 2: 95, 98, 100, 103, 105
+   - Group 3: 108, 110, 112, 115, 118
+   - Group 4: 120, 123, 125, 128, 130
 
-2. Определим значения Q1 и Q3:
-   - Q1 (граница между 1-й и 2-й группой) = 92 г
-   - Q3 (граница между 3-й и 4-й группой) = 120 г
+2. Determine Q1 and Q3 values:
+   - Q1 (boundary between 1st and 2nd group) = 92g
+   - Q3 (boundary between 3rd and 4th group) = 120g
 
-3. Вычислим межквартильный размах:
-   - Межквартильный размах = Q3 - Q1 = 120 г - 92 г = 28 г
+3. Calculate interquartile range:
+   - Interquartile range = Q3 - Q1 = 120g - 92g = 28g
 
-Таким образом, межквартильный размах для нашего набора яблок составляет 28 граммов. Это означает, что разница в весе между 25% и 75% наших яблок (то есть, "средние" 50% яблок) составляет 28 граммов. Этот показатель дает нам представление о разбросе весов большинства яблок, исключая самые легкие и самые тяжелые, которые могли бы исказить общую картину.
+Thus, the interquartile range for our apple set is 28 grams. This means the weight difference between 25% and 75% of our apples (the "middle" 50% of apples) is 28 grams. This indicator gives us an idea of the weight spread of most apples, excluding the lightest and heaviest ones that could distort the overall picture.
 
-#### Влияние множителя IQR
+#### IQR Multiplier Impact
 
-- Увеличение множителя делает метод менее чувствительным (меньше значений определяется как выбросы).
-- Уменьшение множителя делает метод более чувствительным (больше значений определяется как выбросы).
+- Increasing the multiplier makes the method less sensitive (fewer values identified as outliers).
+- Decreasing the multiplier makes the method more sensitive (more values identified as outliers).
 
-Выбор множителя зависит от специфики данных и целей анализа. Стандартное значение 1.5 подходит для многих случаев, но может быть скорректировано в зависимости от требуемой строгости выявления аномалий.
+The multiplier choice depends on data specifics and analysis goals. The standard value of 1.5 suits many cases but can be adjusted based on required anomaly detection strictness.
 
-Этот метод эффективен для первичного анализа данных и выявления потенциальных аномалий, но следует учитывать контекст данных при интерпретации результатов.
+This method is effective for primary data analysis and potential anomaly identification, but data context should be considered when interpreting results.
 
-## 🛠️ Решение проблем
+## 🛠️ Troubleshooting
 
-### Часто встречающиеся проблемы
+### Common Issues
 
-#### Проблемы с установкой
+#### Installation Problems
 ```bash
-# Ошибка: ModuleNotFoundError
+# Error: ModuleNotFoundError
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Ошибка с правами доступа (Linux/macOS)
+# Permission errors (Linux/macOS)
 sudo pip install -r requirements.txt
-# или
+# or
 pip install --user -r requirements.txt
 ```
 
-#### Проблемы с Streamlit
+#### Streamlit Issues
 ```bash
-# Порт уже занят
+# Port already in use
 streamlit run app5.py --server.port 8502
 
-# Проблемы с кэшем
+# Cache problems
 streamlit cache clear
 ```
 
-#### Проблемы с Docker
+#### Docker Problems
 ```bash
-# Проблемы с правами (Linux)
+# Permission issues (Linux)
 sudo docker-compose up
 
-# Очистка контейнеров
+# Clean containers
 docker-compose down
 docker system prune -a
 ```
 
-#### Проблемы с файлами Excel
-- Убедитесь, что файл не открыт в другом приложении
-- Проверьте кодировку файла (должна быть UTF-8)
-- Размер файла не должен превышать 200 МБ
+#### Excel File Issues
+- Ensure file is not open in another application
+- Check file encoding (should be UTF-8)
+- File size should not exceed 200 MB
 
-### Требования к данным
-- **Формат файла**: Excel (.xlsx, .xls)
-- **Структура**: Данные должны быть в табличном формате
-- **Столбцы**: Минимум один числовой столбец для анализа
-- **Строки**: Минимум 10 записей для корректного анализа
+### Data Requirements
+- **File format**: Excel (.xlsx, .xls)
+- **Structure**: Data should be in tabular format
+- **Columns**: At least one numeric column for analysis
+- **Rows**: Minimum 10 records for proper analysis
 
-### Поддержка
+### Support
 - 📧 Email: support@anomalizer.com
 - 🐛 Issues: [GitHub Issues](https://github.com/yourusername/anomalizer/issues)
-- 📖 Документация: [Wiki](https://github.com/yourusername/anomalizer/wiki)
+- 📖 Documentation: [Wiki](https://github.com/yourusername/anomalizer/wiki)
 
 ---
 
-## 📊 Системные требования
+## 📊 System Requirements
 
-| Компонент | Минимум | Рекомендуемо |
-|-----------|---------|--------------|
+| Component | Minimum | Recommended |
+|-----------|---------|-------------|
 | **Python** | 3.8+ | 3.9+ |
-| **RAM** | 2 ГБ | 4+ ГБ |
-| **Диск** | 1 ГБ | 2+ ГБ |
-| **CPU** | 1 ядро | 2+ ядра |
-| **ОС** | Windows 10, macOS 10.14, Ubuntu 18.04 | Последние версии |
+| **RAM** | 2 GB | 4+ GB |
+| **Disk** | 1 GB | 2+ GB |
+| **CPU** | 1 core | 2+ cores |
+| **OS** | Windows 10, macOS 10.14, Ubuntu 18.04 | Latest versions |
 
 ---
 
-## 🧪 Тестирование
+## 🧪 Testing
 
 ```bash
-# Запуск всех тестов
+# Run all tests
 pytest
 
-# Запуск с покрытием
+# Run with coverage
 pytest --cov=. --cov-report=html
 
-# Запуск конкретного теста
+# Run specific test
 pytest tests/test_anomaly_detection.py -v
 ```
 
 ---
 
-## 🤝 Вклад в проект
+## 🤝 Contributing
 
-1. Форкните репозиторий
-2. Создайте ветку для новой функции (`git checkout -b feature/amazing-feature`)
-3. Зафиксируйте изменения (`git commit -m 'Add amazing feature'`)
-4. Отправьте в ветку (`git push origin feature/amazing-feature`)
-5. Откройте Pull Request
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
 
 ---
 
-## 📈 Производительность
+## 📈 Performance
 
-### Рекомендуемые размеры данных
-- **Малые файлы**: до 1000 строк - мгновенная обработка
-- **Средние файлы**: 1K-10K строк - до 5 секунд
-- **Большие файлы**: 10K-100K строк - до 30 секунд
-- **Очень большие файлы**: 100K+ строк - может потребовать оптимизации
+### Recommended Data Sizes
+- **Small files**: up to 1000 rows - instant processing
+- **Medium files**: 1K-10K rows - up to 5 seconds
+- **Large files**: 10K-100K rows - up to 30 seconds
+- **Very large files**: 100K+ rows - may require optimization
 
-### Оптимизация
+### Optimization
 ```python
-# Для больших файлов используйте чтение по частям
+# For large files use chunked reading
 df = pd.read_excel('large_file.xlsx', chunksize=1000)
 ```
 
 ---
 
-## 📝 История версий
+## 📝 Version History
 
-### v2.0.0 (Текущая)
-- 🔧 Полный рефакторинг архитектуры
-- 🧪 Добавлено 23 теста
-- 📊 Улучшенная визуализация
-- 🛡️ Надежная обработка ошибок
-- 📝 Полная документация
+### v2.0.0 (Current)
+- 🔧 Complete architecture refactoring
+- 🧪 Added 23 tests
+- 📊 Enhanced visualization
+- 🛡️ Reliable error handling
+- 📝 Complete documentation
 
 ### v1.0.0
-- ✨ Первый релиз
-- 📊 Базовый функционал обнаружения аномалий
-- 🎨 Простой интерфейс Streamlit
+- ✨ First release
+- 📊 Basic anomaly detection functionality
+- 🎨 Simple Streamlit interface
 
 ---
 
-## Лицензия
+## License
 
-Этот проект лицензирован под лицензией GNU General Public License v3.0. Подробности см. в файле [LICENSE](LICENSE).
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.

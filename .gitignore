@@ -161,3 +161,9 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 .aider*
+
+# Project specific files
+files_datasets/
+uploaded_file.xlsx
+temp_files/
+*.tmp
